@@ -1,11 +1,10 @@
 import usersModel from "../models/usersModel.js";
-import loginModel from "../models/loginModel.js";
 import bcrypt from "bcryptjs";
 
 //Crear un registro
 export const register = async (req, res) => {
   try {
-    const { username, password, fullname, email } = req.body;
+    const { name, password, email } = req.body;
     const hash = await bcrypt.hash(password, 10);
     const user = await usersModel.findAll({
       where: {
@@ -16,9 +15,8 @@ export const register = async (req, res) => {
       res.json({ message: "email existente" });
     } else {
       await usersModel.create({
-        username: username,
+        name: name,
         hash: hash,
-        fullname: fullname,
         email: email,
       });
       res.status(200).json({ message: "Registro creado correctamente" });
@@ -32,7 +30,7 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { password, email } = req.body;
-    const user = await loginModel.findAll({
+    const user = await usersModel.findAll({
       where: {
         email: email,
       },

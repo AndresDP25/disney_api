@@ -26,15 +26,16 @@ export const getUser = async (req, res) => {
 //Crear un registro
 export const createUser = async (req, res) => {
   try {
-    const { username, password, fullname, email } = req.body;
+    const { username, password, name, email, enable } = req.body;
     const hash = await bcrypt.hash(password, 10);
     await usersModel.create({
       username: username,
       hash: hash,
-      fullname: fullname,
+      name: name,
       email: email,
+      enable: enable,
     });
-    res.status(200).json({ message: "Registro creado correctamente" });
+    res.status(200).json({ message: "User created correctly" });
   } catch (error) {
     res.json({ message: error.message });
   }
@@ -46,7 +47,7 @@ export const updateUser = async (req, res) => {
       where: { id: req.params.id },
     });
     res.status(200).json({
-      message: "¡Registro actualizado correctamente",
+      message: "¡User update correctly",
     });
   } catch (error) {
     res.json({ message: error.message });
@@ -59,7 +60,7 @@ export const deleteUser = async (req, res) => {
       where: { id: req.params.id },
     });
     res.status(200).json({
-      message: "¡Registro eliminado correctamente",
+      message: "User removed correctly",
     });
   } catch (error) {
     res.json({ message: error.message });

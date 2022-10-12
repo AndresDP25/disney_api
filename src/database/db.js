@@ -6,6 +6,7 @@ import {
   DB_USER,
   DB_PORT,
 } from "../config/config.js";
+import usersModel from "../models/usersModel.js";
 
 //conexión a la db y configuración sequelize
 const db = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {

@@ -1,1 +1,0 @@
-/* creamos la base de datos por phpmyadmin */

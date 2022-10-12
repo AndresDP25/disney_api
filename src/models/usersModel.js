@@ -7,10 +7,15 @@ import { DataTypes } from "sequelize";
 const usersModel = db.define(
   "users",
   {
-    username: { type: DataTypes.STRING },
-    hash: { type: DataTypes.STRING },
-    fullname: { type: DataTypes.STRING },
-    email: { type: DataTypes.STRING },
+    hash: { type: DataTypes.STRING(100), allowNull: false },
+    name: { type: DataTypes.STRING(50), allowNull: false },
+    email: { type: DataTypes.STRING(50), allowNull: false, unique: true },
+    enable: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: true },
+    role: {
+      type: DataTypes.ENUM({ values: ["USER_ROLE", "ADMIN_ROLE"] }),
+      allowNull: false,
+      defaultValue: "USER_ROLE",
+    },
   },
   {
     timestamps: false,

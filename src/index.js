@@ -3,9 +3,10 @@ import { PORT } from "./config/config.js";
 // import cors from "cors";
 import morgan from "morgan";
 import users from "./routes/users.js";
-// import auth from "./routes/auth.js";
-// import links from "./routes/links.js";
+import auth from "./routes/auth.js";
+import characters from "./routes/characters.js";
 import db from "./database/db.js";
+import charactersModel from "./models/characters.js";
 // import session from "express-session";
 // import passport from "passport";
 
@@ -28,13 +29,16 @@ app.use(morgan("dev"));
 // app.use(passport.initialize())
 // app.use(passport.session())
 
-// app.use("/auth", auth);
-// app.use("/users", users);
-// app.use("/links", links);
+app.use("/auth", auth);
+app.use("/users", users);
+app.use("/characters", characters);
 
-//conexión a la db
+//verificación de conexión a la db
 try {
   await db.authenticate();
+  // hacemos que se cree una nueva db con el modelo
+  // db.sync({ alter: true });
+  db.sync({ force: false });
   console.log("DB loaded and connected");
 } catch (error) {
   console.log(`Error conection: ${error}`);
