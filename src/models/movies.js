@@ -10,9 +10,9 @@ import genderType from "./genderType.js";
 const Movie = db.define(
   "Movie",
   {
-    image: { type: DataTypes.STRING(250), allowNull: false },
+    image: { type: DataTypes.STRING(250), allowNull: true },
     title: { type: DataTypes.STRING(250), allowNull: false },
-    creationDate: { type: DataTypes.DATE, allowNull: false, unique: true },
+    creationDate: { type: DataTypes.DATE, allowNull: false },
     calification: { type: DataTypes.INTEGER, allowNull: true },
   },
   {

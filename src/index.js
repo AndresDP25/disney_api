@@ -1,14 +1,12 @@
 import express from "express";
 import { PORT } from "./config/config.js";
-// import cors from "cors";
 import morgan from "morgan";
 import users from "./routes/users.js";
 import auth from "./routes/auth.js";
 import characters from "./routes/characters.js";
+import movies from "./routes/movies.js";
 import db from "./database/db.js";
 import charactersModel from "./models/characters.js";
-// import session from "express-session";
-// import passport from "passport";
 
 const app = express();
 
@@ -19,19 +17,10 @@ app.use(express.urlencoded({ extended: false }));
 //Registrador de solicitudes
 app.use(morgan("dev"));
 
-//sesiones
-// app.use(session({
-//     secret: 'secret',
-//     resave: true,
-//     saveUninitialized: true
-// }))
-
-// app.use(passport.initialize())
-// app.use(passport.session())
-
 app.use("/auth", auth);
 app.use("/users", users);
 app.use("/characters", characters);
+app.use("/movies", movies);
 
 //verificación de conexión a la db
 try {

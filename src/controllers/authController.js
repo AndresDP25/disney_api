@@ -12,17 +12,17 @@ export const register = async (req, res) => {
       },
     });
     if (user[0]) {
-      res.json({ message: "email existente" });
+      res.status(400).json({ message: "existing email" });
     } else {
       await usersModel.create({
         name: name,
         hash: hash,
         email: email,
       });
-      res.status(200).json({ message: "Registro creado correctamente" });
+      res.status(200).json({ message: "User created" });
     }
   } catch (error) {
-    res.json({ message: error.message });
+    res.status(400).json({ message: error.message });
   }
 };
 
@@ -40,7 +40,7 @@ export const login = async (req, res) => {
       if (validPass) {
         res.status(200).json("Valid Email and pass!");
       } else {
-        res.json("Wrong pass!");
+        res.status(400).json("Wrong pass!");
       }
     } else {
       res.status(404).json("User not found!");
