@@ -6,14 +6,21 @@ import {
   getUser,
   updateUser,
 } from "../controllers/usersController.js";
-import { postRequestValidations } from "../middlewares/users/users.js";
+import {
+  postRequestValidations,
+  putRequestValidations,
+  getAllRequestValidation,
+  getRequestValidation,
+  deleteRequestValidations,
+} from "../middlewares/users/users.js";
 
 const router = Router();
 
-router.get("/", getAllUsers);
-router.get("/:id", getUser);
+router.get("/", getAllRequestValidation, getAllUsers);
+router.get("/:id", getRequestValidation, getUser);
 router.post("/", postRequestValidations, createUser);
-router.put("/:id", updateUser);
-router.delete("/:id", deleteUser);
+router.put("/:id", putRequestValidations, updateUser);
+router.delete("/:id", deleteRequestValidations, deleteUser);
+//todo deleteRequestValidations
 
 export default router;

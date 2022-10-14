@@ -6,7 +6,7 @@ import auth from "./routes/auth.js";
 import characters from "./routes/characters.js";
 import movies from "./routes/movies.js";
 import db from "./database/db.js";
-import charactersModel from "./models/characters.js";
+import charactersModel from "./models/charactersmovie.js";
 
 const app = express();
 

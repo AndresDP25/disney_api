@@ -20,9 +20,3 @@ const Character = db.define(
 );
 
 export default Character;
-
-// Character.belongsToMany(movies, {
-//   through: "characterMovies",
-//   as: "movies",
-//   foreignKey: "characterId",
-// });
