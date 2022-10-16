@@ -9,12 +9,3 @@ export const validResult = (req, res, next) => {
   }
   next();
 };
-
-const imageRequired = checkSchema({
-  image: {
-    custom: {
-      options: (value, { req }) => !!req.file,
-      errorMessage: "You should upload a file",
-    },
-  },
-});

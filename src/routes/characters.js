@@ -6,13 +6,20 @@ import {
   getCharacter,
   updateCharacter,
 } from "../controllers/CharactersController.js";
+import {
+  postRequestValidations,
+  putRequestValidations,
+  getAllRequestValidation,
+  getRequestValidation,
+  deleteRequestValidations,
+} from "../middlewares/movies/movies.js";
 
 const router = Router();
 
-router.get("/", getAllCharacters);
-router.get("/:id", getCharacter);
-router.post("/", createCharacter);
-router.put("/:id", updateCharacter);
-router.delete("/:id", deleteCharacter);
+router.get("/", getAllRequestValidation, getAllCharacters);
+router.get("/:id", getRequestValidation, getCharacter);
+router.post("/", postRequestValidations, createCharacter);
+router.put("/:id", putRequestValidations, updateCharacter);
+router.delete("/:id", deleteRequestValidations, deleteCharacter);
 
 export default router;
