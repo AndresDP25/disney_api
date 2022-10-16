@@ -18,7 +18,7 @@ const router = Router();
 
 router.get("/", getAllRequestValidation, getAllCharacters);
 router.get("/:id", getRequestValidation, getCharacter);
-router.post("/", postRequestValidations, createCharacter);
+router.post("/", createCharacter);
 router.put("/:id", putRequestValidations, updateCharacter);
 router.delete("/:id", deleteRequestValidations, deleteCharacter);
 

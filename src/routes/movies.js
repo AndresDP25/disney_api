@@ -18,7 +18,7 @@ const router = Router();
 
 router.get("/", getAllRequestValidation, getAllMovies);
 router.get("/:id", getRequestValidation, getMovie);
-router.post("/", postRequestValidations, createMovie);
+router.post("/", createMovie);
 router.put("/:id", putRequestValidations, updateMovie);
 router.delete("/:id", deleteRequestValidations, deleteMovie);
 

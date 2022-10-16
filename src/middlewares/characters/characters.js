@@ -2,7 +2,7 @@ const { check } = require("express-validator");
 import { AppError } from "../../errors/appError.js";
 import charactersModel from "../../models/characters.js";
 import { validResult } from "../commons.js";
-// import { validJWT, hasRole } from "../auth/auth.js";
+import { validJWT } from "../auth/auth.js";
 
 const _nameRequired = check("name", "Name required").not().isEmpty();
 const _roleValid = check("role")
@@ -40,17 +40,17 @@ const _nameNotExist = check("name").custom(async (name = "") => {
 });
 
 const postRequestValidations = [
-  //   validJWT,
-  _nameRequired,
-  _nameNotExist,
-  _ageIsNumeric,
-  _historyRequired,
-  _weigthIsNumeric,
-  validResult,
+  // validJWT,
+  // _nameRequired,
+  // _nameNotExist,
+  // _ageIsNumeric,
+  // _historyRequired,
+  // _weigthIsNumeric,
+  // validResult,
 ];
 
 export const putRequestValidations = [
-  //   validJWT,
+  validJWT,
   _idRequied,
   _nameNotExist,
   //   _idIsNumeric,
@@ -62,7 +62,7 @@ export const putRequestValidations = [
 ];
 
 export const deleteRequestValidations = [
-  //   validJWT,
+  validJWT,
   hasRole(ADMIN_ROLE),
   _idRequied,
   //   _idIsNumeric,

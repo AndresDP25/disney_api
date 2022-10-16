@@ -26,8 +26,8 @@ app.use("/movies", movies);
 try {
   await db.authenticate();
   // hacemos que se cree una nueva db con el modelo
-  // db.sync({ alter: true });
-  db.sync({ force: false });
+  db.sync({ alter: true });
+  // db.sync({ force: false });
   console.log("DB loaded and connected");
 } catch (error) {
   console.log(`Error conection: ${error}`);

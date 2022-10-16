@@ -60,7 +60,7 @@ export const postRequestValidations = [
 ];
 
 export const putRequestValidations = [
-  // validJWT,
+  validJWT,
   _idRequied,
   // _idIsNumeric,
   // _idExist,
@@ -71,7 +71,7 @@ export const putRequestValidations = [
 ];
 
 export const deleteRequestValidations = [
-  // validJWT,
+  validJWT,
   _idRequied,
   // _idIsNumeric,
   // _idExist,
@@ -81,7 +81,7 @@ export const deleteRequestValidations = [
 export const getAllRequestValidation = [validResult];
 
 export const getRequestValidation = [
-  // validJWT,
+  validJWT,
   _idRequied,
   // _idIsNumeric,
   // _idExist,

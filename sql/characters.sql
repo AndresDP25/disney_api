@@ -1,0 +1,10 @@
+INSERT INTO `user` (`id`, `image`, `name`, `age`, `history`, `weigth`) VALUES (NULL, NULL, 'Woddy', 22, 'Toy Story', 12),
+(NULL, NULL, 'Buzz LightYear', 32, 'Toy Story', 15),
+(NULL, NULL, 'Aladdin', 26, 'Aladdin', 70),
+(NULL, NULL, 'Scar', 46, 'Rey Leon', 70),
+(NULL, NULL, 'Timon', 46, 'Rey Leon', 15),
+(NULL, NULL, 'Pumba', 46, 'Rey Leon', 20),
+(NULL, NULL, 'Pinocho', 80, 'Pinocho', 15),
+(NULL, NULL, 'Geppetto', 80, 'Pinocho', 60),
+(NULL, NULL, 'Iron Man', 46, 'The Avengers', 80),
+(NULL, NULL, 'Capitan America', 46, 'The Avengers', 80);
